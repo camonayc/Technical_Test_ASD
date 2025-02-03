@@ -1,4 +1,4 @@
-# 📱 Flutter Clean Architecture App
+# 📱 Prueba Técnica Grupo ASD
 
 ## 📌 Configuración y Ejecución
 
