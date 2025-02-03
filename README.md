@@ -4,7 +4,7 @@
 
 ### ⚙️ Requisitos Previos
 
-- Tener instalado [Flutter](https://flutter.dev/docs/get-started/install) (versión recomendada: 3.x.x o superior)
+- Tener instalado [Flutter](https://flutter.dev/docs/get-started/install) (versión recomendada: 3.6.1 o superior)
 - Tener instalado [Dart](https://dart.dev/get-dart)
 - Configurar un emulador o conectar un dispositivo físico
 
@@ -66,3 +66,42 @@ La aplicación sigue la arquitectura **Clean Architecture**, asegurando una corr
 4. **Data** -> Obtiene los datos desde un API o base de datos local
 5. **BLoC** -> Emite un nuevo estado con los datos obtenidos
 6. **UI** -> Escucha los cambios de estado y actualiza la vista
+
+## 🧪 Pruebas Unitarias
+
+Para ejecutar las pruebas unitarias en el proyecto, sigue estos pasos:
+
+### ⚙️ Instalación de dependencias
+
+Si es la primera vez que ejecutas las pruebas o si faltan dependencias, instálalas con:
+
+```sh
+flutter pub add dev:mockito dev:build_runner
+```
+
+### ⚡ Ejecutar pruebas
+
+Para ejecutar todas las pruebas unitarias:
+
+```sh
+flutter test
+```
+
+Si necesitas regenerar los mocks debido a cambios en las clases de prueba, ejecuta:
+
+```sh
+flutter pub run build_runner build
+```
+
+### 🔨 Configuración especial
+
+Para evitar `LateInitializationError` en `Environment.config`, asegúrate de inicializarlo antes de correr las pruebas. Agrega esto en los archivos de prueba (`test/...`):
+
+```dart
+setUpAll(() async {
+  final env = Environment();
+  await env.initConfig(env: EnvType.DEV); // Inicializa el entorno antes de los tests
+});
+```
+
+Esto garantiza que `Environment.config` esté correctamente inicializado antes de las pruebas. ✨
