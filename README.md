@@ -12,8 +12,8 @@
 
 1. Clonar el repositorio:
    ```sh
-   git clone https://github.com/tu-repositorio.git
-   cd nombre-del-proyecto
+   git clone https://github.com/camonayc/Technical_Test_ASD.git
+   cd Technical_Test_ASD
    ```
 2. Instalar las dependencias:
    ```sh
